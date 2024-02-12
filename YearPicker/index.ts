@@ -1,5 +1,4 @@
 import {IInputs, IOutputs} from "./generated/ManifestTypes";
-import './css/YearPicker.css';
 
 export class YearPicker implements ComponentFramework.StandardControl<IInputs, IOutputs> {
 
