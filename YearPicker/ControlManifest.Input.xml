@@ -33,7 +33,6 @@
     -->
     <resources>
       <code path="index.ts" order="1"/>
-      <css path="css/YearPicker.css" order="1" />
       <!-- UNCOMMENT TO ADD MORE RESOURCES
       <css path="css/YearPicker.css" order="1" />
       <resx path="strings/YearPicker.1033.resx" version="1.0.0" />
