@@ -30,21 +30,21 @@ export class YearPicker implements ComponentFramework.StandardControl<IInputs, I
      * @param state A piece of data that persists in one session for a single user. Can be set at any point in a controls life cycle by calling 'setControlState' in the Mode interface.
      * @param container If a control is marked control-type='standard', it will receive an empty div element within which it can render its content.
      */
-    public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, state: ComponentFramework.Dictionary, container:HTMLDivElement): void
-    {
-        // Add control initialization code
-        this._value = context.parameters.value.raw;
+        public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, container: HTMLDivElement): void
+        {
+            // Add control initialization code
+            this._value = context.parameters.value?.raw;
 
-		this._notifyOutputChanged = notifyOutputChanged;
-		this._refreshData = this.refreshData.bind(this);
-		this._updateValue = this.updateValue.bind(this);
-		
-		this._input = document.createElement("input")
-		this._input.setAttribute("type", "number");
-		this._input.addEventListener("input", this._refreshData);
-		
-		container.appendChild(this._input);
-    }
+            this._notifyOutputChanged = notifyOutputChanged;
+            this._refreshData = this.refreshData.bind(this);
+            this._updateValue = this.updateValue.bind(this);
+            
+            this._input = document.createElement("input")
+            this._input.setAttribute("type", "number");
+            this._input.addEventListener("input", this._refreshData);
+            
+            container.appendChild(this._input);
+        }
 
 
     /**
