@@ -33,7 +33,8 @@ export class YearPicker implements ComponentFramework.StandardControl<IInputs, I
         public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, container: HTMLDivElement): void
         {
             // Add control initialization code
-            this._value = context.parameters.value?.raw;
+            //this._value = context.parameters.value?.raw;
+            this._value = context.parameters.value?.raw ?? undefined;
 
             this._notifyOutputChanged = notifyOutputChanged;
             this._refreshData = this.refreshData.bind(this);
@@ -54,8 +55,9 @@ export class YearPicker implements ComponentFramework.StandardControl<IInputs, I
     public updateView(context: ComponentFramework.Context<IInputs>): void
     {
         // Add code to update control view
-        this._value = context.parameters.value.raw;
-		this._updateValue();
+        //this._value = context.parameters.value.raw;
+        this._value = context.parameters.value?.raw ?? undefined;
+        this._updateValue();
     }
     private updateValue() {
 		if (this._value === undefined) {
