@@ -13,21 +13,7 @@ export class YearPicker implements ComponentFramework.StandardControl<IInputs, I
      */
         constructor()
         {
-            var style = document.createElement("style");
 
-            style.setAttribute("type", "text/css");
-            style.appendChild(document.createTextNode(".YearPicker input[type=\"number\"] { /* your styles here */ }"));
-            style.appendChild(document.createTextNode(".YearPicker input[type=\"number\"]:hover { /* your styles here */ }"));
-
-            if (document.head) {
-                document.head.appendChild(style);
-            } else {
-                document.addEventListener("DOMContentLoaded", function() {
-                    if (document.head) {
-                        document.head.appendChild(style);
-                    }
-                });
-            }
         }
 
     /**
@@ -41,7 +27,7 @@ export class YearPicker implements ComponentFramework.StandardControl<IInputs, I
         public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, container: HTMLDivElement): void
         {
             // Add control initialization code
-            //this._value = context.parameters.value?.raw;
+            
             this._value = context.parameters.value?.raw ?? undefined;
 
             this._notifyOutputChanged = notifyOutputChanged;
@@ -63,7 +49,6 @@ export class YearPicker implements ComponentFramework.StandardControl<IInputs, I
     public updateView(context: ComponentFramework.Context<IInputs>): void
     {
         // Add code to update control view
-        //this._value = context.parameters.value.raw;
         this._value = context.parameters.value?.raw ?? undefined;
         this._updateValue();
     }
